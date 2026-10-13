@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevanshWebStudio | Professional Websites</title>
+  <meta name="description" content="DevanshWebStudio creates modern, professional websites for local businesses.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #070b14;
+      --card: #101827;
+      --blue: #168cff;
+      --cyan: #35d9ff;
+      --white: #f5f8ff;
+      --muted: #a6b3c8;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(53, 217, 255, 0.15);
+    }
+
+    nav {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      background: linear-gradient(110deg, var(--blue), var(--cyan));
+      color: #04101c;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(22, 140, 255, 0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--blue);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(22, 140, 255, 0.17), transparent 55%),
+        var(--bg);
+      padding: 90px 0;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 15px;
+      border: 1px solid rgba(53, 217, 255, 0.3);
+      border-radius: 30px;
+      color: var(--cyan);
+      font-size: 13px;
+      margin-bottom: 25px;
+      background: rgba(53, 217, 255, 0.05);
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 32px;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 5vw, 44px);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-heading h2 span {
+      color: var(--cyan);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #111c2d, #0b111d);
+      border: 1px solid rgba(110, 160, 220, 0.13);
+      padding: 30px;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(53, 217, 255, 0.5);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(22, 140, 255, 0.12);
+      color: var(--cyan);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .experience {
+      background: #0a101b;
+      border-top: 1px solid rgba(53, 217, 255, 0.1);
+      border-bottom: 1px solid rgba(53, 217, 255, 0.1);
+    }
+
+    .project-card {
+      max-width: 850px;
+      margin: auto;
+      overflow: hidden;
+      border: 1px solid rgba(53, 217, 255, 0.2);
+      border-radius: 18px;
+      background: var(--card);
+    }
+
+    .project-preview {
+      min-height: 240px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(22, 140, 255, 0.2), transparent 70%),
+        #0c1524;
+    }
+
+    .project-preview .pizza-icon {
+      font-size: 65px;
+      margin-bottom: 10px;
+    }
+
+    .project-preview h3 {
+      font-size: 30px;
+    }
+
+    .project-preview p {
+      color: var(--muted);
+    }
+
+    .project-info {
+      padding: 30px;
+    }
+
+    .project-info h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .project-info .btn {
+      margin-right: 10px;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card {
+      max-width: 650px;
+      margin: auto;
+      text-align: center;
+      padding: 45px 30px;
+      border: 1px solid rgba(53, 217, 255, 0.35);
+      border-radius: 20px;
+      background:
+        radial-gradient(ellipse at top, rgba(22, 140, 255, 0.13), transparent 65%),
+        var(--card);
+    }
+
+    .pricing-card h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 45px;
+      font-weight: 900;
+      color: var(--cyan);
+      margin: 18px 0;
+    }
+
+    .price small {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .pricing-card p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .pricing-list {
+      list-style: none;
+      text-align: left;
+      max-width: 340px;
+      margin: 25px auto;
+    }
+
+    .pricing-list li {
+      margin: 12px 0;
+      color: #dce8f7;
+    }
+
+    .pricing-list li::before {
+      content: "✓";
+      color: var(--cyan);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(22, 140, 255, 0.12), transparent 60%);
+    }
+
+    .contact-box {
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid rgba(53, 217, 255, 0.13);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer span {
+      color: var(--cyan);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .nav-contact {
+        display: none;
+      }
+
+      .brand {
+        font-size: 19px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 0;
+        gap: 8px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .project-info .btn {
+        display: block;
+        margin-right: 0;
+        text-align: center;
+      }
+
+      .price {
+        font-size: 38px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="brand">
+          Devansh<span>WebStudio</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#experience">Work</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <a href="#contact" class="btn nav-contact">Get a Website</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content reveal">
+        <div class="tag">MODERN WEBSITES FOR LOCAL BUSINESSES</div>
+
+        <h1>
+          Your business.<br>
+          Your website.<br>
+          <span>Your next level.</span>
+        </h1>
+
+        <p>
+          Professional, modern websites designed to help local businesses
+          stand out online, connect with customers and grow their brand.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn">Let's Build Your Website →</a>
+          <a href="#experience" class="btn btn-outline">View My Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>What I <span>Do</span></h2>
+          <p>
+            Everything your business needs to build a strong online presence.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card reveal">
+            <div class="card-icon">⌘</div>
+            <h3>Website Design</h3>
+            <p>
+              Modern, stylish websites tailored to your business,
+              brand colours and customers.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon">⚡</div>
+            <h3>Mobile-Friendly</h3>
+            <p>
+              Websites designed to look great on phones, tablets
+              and computers.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-icon">↗</div>
+            <h3>Business Growth</h3>
+            <p>
+              Make it easier for customers to learn about your business
+              and get in touch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>My <span>Work</span></h2>
+          <p>
+            Explore a website project created for a local business.
+          </p>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-preview">
+            <div class="pizza-icon">🍕</div>
+            <h3>O'Sole Mio</h3>
+            <p>Pizzeria Italiana · Website Demo</p>
+          </div>
+
+          <div class="project-info">
+            <h3>O'Sole Mio Pizzeria Italiana</h3>
+            <p>
+              A website demo for an Italian pizzeria, designed to give
+              the business a professional online presence and help
+              customers explore what it offers.
+            </p>
+
+            <a
+              href="https://aqua-pamela-87.tiiny.site/#contact"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn"
+            >
+              View Website Demo ↗
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+              Want Something Similar?
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Simple <span>Pricing</span></h2>
+          <p>
+            Every business is different, so let's work out a price
+            that suits your needs.
+          </p>
+        </div>
+
+        <div class="pricing-card reveal">
+          <h3>Custom Business Website</h3>
+
+          <div class="price">
+            $100–$1,000
+            <small>AUD</small>
+          </div>
+
+          <p>
+            Pricing is negotiable and depends on the size and features
+            of your website.
+          </p>
+
+          <ul class="pricing-list">
+            <li>Custom website design</li>
+            <li>Mobile-friendly layout</li>
+            <li>Business information and contact details</li>
+            <li>Custom colours and branding</li>
+            <li>Optional custom domain</li>
+            <li>Price discussed before starting</li>
+          </ul>
+
+          <a href="#contact" class="btn">Discuss Your Website →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-box reveal">
+        <div class="tag">LET'S WORK TOGETHER</div>
+
+        <h2>Ready to get <span style="color: var(--cyan);">online?</span></h2>
+
+        <p>
+          Need a new website for your business? Get in touch to discuss
+          your ideas, requirements and budget. We can negotiate a price
+          that works for you.
+        </p>
+
+        <div class="contact-buttons">
+          <a href="tel:+61494165976" class="btn">Call Me</a>
+
+          <a href="sms:+61494165976" class="btn btn-outline">
+            Send a Text
+          </a>
+
+          <a href="mailto:devanshchouhan2014@gmail.com" class="btn btn-outline">
+            Email Me
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Developed by <span>DevanshWebStudio</span> · © 2026 All rights reserved
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+
+</body>
+</html>
+
